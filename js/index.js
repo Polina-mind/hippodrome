@@ -36,7 +36,7 @@ function onStartClick() {
           "beforeend",
           `<img
             class="preloader"
-            src="../images/race-horse.svg"
+            src="https://github.com/Polina-mind/hippodrome/blob/main/images/race-horse.svg"
             alt="horse"
             width="60px"
             height="60px"
