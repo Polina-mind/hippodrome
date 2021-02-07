@@ -108,3 +108,21 @@ button:hover,
 button:focus {
   border-color: #fff;
 }
+
+.preloader {
+  transition-property: transform;
+  animation-duration: 10s;
+  animation: animateX50 3000ms;
+
+  /* transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08); */
+}
+
+@keyframes animateX50 {
+  0% {
+    transform: translateX(-150px);
+  }
+
+  100% {
+    transform: translateX(150px);
+  }
+}

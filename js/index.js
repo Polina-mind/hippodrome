@@ -5,7 +5,7 @@ const refs = {
   startButton: document.querySelector('button[data-action="start"]'),
   clearButton: document.querySelector('button[data-action="stop"]'),
   rates: document.querySelector(".rates"),
-  // tableResult: document.querySelector(".result-table"),
+  preloader: document.querySelector(".preloader"),
 };
 
 refs.startButton.addEventListener("click", onStartClick);
@@ -32,7 +32,21 @@ function onStartClick() {
       const time = getRandomTime(4000, 6500);
 
       setTimeout(() => {
+        refs.message.insertAdjacentHTML(
+          "beforeend",
+          `<img
+            class="preloader"
+            src="../images/race-horse.svg"
+            alt="horse"
+            width="60"
+            height="60"
+          />`
+        );
+      }, time);
+
+      setTimeout(() => {
         resolve({ idx, horse, time });
+
         refs.message.insertAdjacentHTML(
           "beforeend",
           `<p class="participants"> №${idx + 1} "${horse}" - ${(
