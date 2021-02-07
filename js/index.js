@@ -36,7 +36,7 @@ function onStartClick() {
           "beforeend",
           `<img
             class="preloader"
-            src="../images/race-horse.svg"
+            src="../race-horse.svg"
             alt="horse"
             width="60"
             height="60"
