@@ -29,7 +29,7 @@ function onStartClick() {
 
   const run = (horse, idx) => {
     return new Promise((resolve) => {
-      const time = getRandomTime(4000, 6500);
+      const time = getRandomTime(2000, 10000);
 
       setTimeout(() => {
         refs.message.insertAdjacentHTML(

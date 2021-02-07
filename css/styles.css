@@ -111,7 +111,7 @@ button:focus {
 
 .preloader {
   transition-property: transform;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation: animateX50 3000ms;
 
   /* transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08); */
