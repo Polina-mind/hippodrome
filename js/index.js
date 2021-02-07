@@ -11,11 +11,11 @@ refs.startButton.addEventListener("click", onStartClick);
 refs.clearButton.addEventListener("click", onClearButton);
 
 let isOn = false;
-if (isOn) {
-  refs.message.classList.add("isVisible");
-} else {
-  refs.message.classList.remove("isVisible");
-}
+// if (isOn) {
+//   refs.message.classList.add("isVisible");
+// } else {
+//   refs.message.classList.remove("isVisible");
+// }
 
 function onStartClick() {
   if (isOn) {
@@ -50,13 +50,13 @@ function onStartClick() {
   Promise.all(promises)
     .then((results) => {
       isOn = false;
-      console.log(results);
+      console.table(results);
 
-      results.map((result) => {
+      results.map((result, idx) => {
         const { horse, time } = result;
         refs.message.insertAdjacentHTML(
           "beforeend",
-          `<p class="participants">${horse} - ${time} миллисекунд </br></p>`
+          `<p class="participants"> ${idx + 1}  ${horse} - ${time} мс </br></p>`
         );
       });
     })
@@ -77,13 +77,13 @@ function onStartClick() {
       `<p class="text">Результаты всех участников:</p>`
     );
 
-    refs.tableResult.classList.add("isVisible");
+    // refs.tableResult.classList.add("isVisible");
   });
 }
 
 function onClearButton() {
   if (!isOn) {
-    refs.tableResult.classList.remove("isVisible");
+    // refs.tableResult.classList.remove("isVisible");
     refs.message.classList.add("isVisible");
     refs.message.innerHTML = '<p class="text">Удачи в новом забеге :)</p>';
 
