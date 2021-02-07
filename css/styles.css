@@ -32,7 +32,8 @@ h1 {
   /* text-decoration: underline; */
 }
 
-.text {
+.text,
+.rates {
   margin-top: 0;
   margin-bottom: 15px;
 

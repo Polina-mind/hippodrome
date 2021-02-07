@@ -4,18 +4,14 @@ const refs = {
   message: document.querySelector(".message"),
   startButton: document.querySelector('button[data-action="start"]'),
   clearButton: document.querySelector('button[data-action="stop"]'),
-  tableResult: document.querySelector(".result-table"),
+  rates: document.querySelector(".rates"),
+  // tableResult: document.querySelector(".result-table"),
 };
 
 refs.startButton.addEventListener("click", onStartClick);
 refs.clearButton.addEventListener("click", onClearButton);
 
 let isOn = false;
-// if (isOn) {
-//   refs.message.classList.add("isVisible");
-// } else {
-//   refs.message.classList.remove("isVisible");
-// }
 
 function onStartClick() {
   if (isOn) {
@@ -23,23 +19,26 @@ function onStartClick() {
       "beforeend",
       `<p class="text">Ожидайте окончания забега ;)</p>`
     );
-
     return;
   }
 
+  refs.message.innerHTML = "";
+  refs.rates.textContent = `Забег начался, ставки больше не принимаются!`;
+
   isOn = true;
 
-  refs.message.insertAdjacentHTML(
-    "beforeend",
-    `<p class="text">Забег начался, ставки больше не принимаются!</p>`
-  );
-
-  const run = (horse) => {
+  const run = (horse, idx) => {
     return new Promise((resolve) => {
-      const time = getRandomTime(2500, 5500);
+      const time = getRandomTime(4000, 6500);
 
       setTimeout(() => {
-        resolve({ horse, time });
+        resolve({ idx, horse, time });
+        refs.message.insertAdjacentHTML(
+          "beforeend",
+          `<p class="participants"> №${idx + 1} "${horse}" - ${(
+            time / 1000
+          ).toFixed(2)} секунд </br></p>`
+        );
       }, time);
     });
   };
@@ -54,10 +53,6 @@ function onStartClick() {
 
       results.map((result, idx) => {
         const { horse, time } = result;
-        refs.message.insertAdjacentHTML(
-          "beforeend",
-          `<p class="participants"> ${idx + 1}  ${horse} - ${time} мс </br></p>`
-        );
       });
     })
     .catch(console.log);
@@ -65,28 +60,23 @@ function onStartClick() {
   Promise.race(promises).then(({ horse, time }) => {
     refs.message.insertAdjacentHTML(
       "beforeend",
-      `<p class="text">Забег окончен</p>`
-    );
-    refs.message.insertAdjacentHTML(
-      "beforeend",
-      `<p class="text">Победила лошадка <span class = "winner">"${horse}"</span>, финишировав за <span class = "winner">${time} милисекунд</span>!!!</p>`
+      `<p class="text">Победила лошадка <span class = "winner">"${horse}"</span>, финишировав за <span class = "winner">${(
+        time / 1000
+      ).toFixed(2)} секунд</span>!!!</p>`
     );
 
     refs.message.insertAdjacentHTML(
       "beforeend",
-      `<p class="text">Результаты всех участников:</p>`
+      `<p class="text">Результаты забега остальных участников:</p>`
     );
-
-    // refs.tableResult.classList.add("isVisible");
   });
 }
 
 function onClearButton() {
   if (!isOn) {
-    // refs.tableResult.classList.remove("isVisible");
-    refs.message.classList.add("isVisible");
     refs.message.innerHTML = '<p class="text">Удачи в новом забеге :)</p>';
 
+    refs.rates.textContent = `Делайте ставки!`;
     return;
   }
 }
