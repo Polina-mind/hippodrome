@@ -24,6 +24,11 @@ h1 {
 
 .name {
   color: rgb(68, 68, 143);
+
+  animation-name: changeColor;
+  animation-duration: 10s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 1s;
 }
 
 .announcement {
