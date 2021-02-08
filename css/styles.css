@@ -26,9 +26,8 @@ h1 {
   color: rgb(68, 68, 143);
 
   animation-name: changeColor;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-delay: 1s;
 }
 
 .announcement {
@@ -60,7 +59,7 @@ h1 {
   font-size: 18px;
 
   animation-name: changeColor;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   animation-delay: 1s;
 }
@@ -105,7 +104,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 table th,
