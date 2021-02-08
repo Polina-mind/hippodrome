@@ -19,7 +19,7 @@ body {
 
 h1 {
   margin-top: 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .name {
@@ -33,7 +33,7 @@ h1 {
 
 .announcement {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 16px;
   /* text-decoration: underline; */
 }
 
@@ -57,7 +57,7 @@ h1 {
 .winner {
   color: rgb(30, 173, 2);
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
 
   animation-name: changeColor;
   animation-duration: 5s;
@@ -164,10 +164,10 @@ button:focus {
 
 @keyframes animateX50 {
   0% {
-    transform: translateX(-350px);
+    transform: translateX(-300px);
   }
 
   100% {
-    transform: translateX(350px);
+    transform: translateX(300px);
   }
 }
