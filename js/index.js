@@ -37,6 +37,7 @@ function onStartClick() {
           `<img
             class="preloader"
             src="images/race-horse.svg"
+            //src="../images/race-horse.svg"
             alt="horse"
             width="60px"
             height="60px"
@@ -74,7 +75,7 @@ function onStartClick() {
   Promise.race(promises).then(({ horse, time }) => {
     refs.message.insertAdjacentHTML(
       'beforeend',
-      `<p class="text">Победила лошадка <span class = "winner">"${horse}"</span>, финишировав за <span class = "winner">${(
+      `<p class="text-win">Победила лошадка <span class = "winner">"${horse}"</span>, финишировав за <span class = "winner">${(
         time / 1000
       ).toFixed(2)} секунд</span>!!!</p>`,
     );
